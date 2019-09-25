@@ -1,13 +1,4 @@
-<!--
- * @Description: my project
- * @Author: MoonCheung
- * @Github: https://github.com/MoonCheung
- * @Date: 2019-09-06 13:01:48
- * @LastEditors: MoonCheung
- * @LastEditTime: 2019-09-07 00:25:43
- -->
-
-# nuxt-example
+# nuxt-boot
 
 > My mind-blowing Nuxt.js project
 
