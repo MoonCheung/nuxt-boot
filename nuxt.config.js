@@ -1,13 +1,8 @@
-/*
- * @Description: nuxt 配置文件
- * @Author: MoonCheung
- * @Github: https://github.com/MoonCheung
- * @Date: 2019-09-06 13:01:48
- * @LastEditors: MoonCheung
- * @LastEditTime: 2019-09-07 00:18:58
- */
+const webpack = require('webpack')
+
 export default {
   mode: 'universal',
+  srcDir: 'src/',
   /*
    ** Headers of the page
    */
@@ -46,6 +41,8 @@ export default {
    ** Global CSS
    */
   css: [
+    '@/assets/css/tooplate-style.css',
+    '@/assets/css/hero-slider.css',
     '@/assets/css/main.css'
   ],
   /*
@@ -57,7 +54,8 @@ export default {
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/router',
   ],
   /*
    ** Nuxt.js modules
@@ -68,6 +66,11 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios'
   ],
+  // bootstrapVue 按需引入
+  bootstrapVue: {
+    componentPlugins: [],
+    directivePlugins: []
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
@@ -80,6 +83,34 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) {
+      const vueLoader = config.module.rules.find(rule => rule.loader === 'vue-loader')
+      vueLoader.options.transformAssetUrls = {
+        video: ['src', 'poster'],
+        source: 'src',
+        img: 'src',
+        image: 'xlink:href',
+        'b-img': 'src',
+        'b-img-lazy': ['src', 'blank-src'],
+        'b-card': 'img-src',
+        'b-card-img': 'src',
+        'b-card-img-lazy': ['src', 'blank-src'],
+        'b-carousel-slide': 'img-src',
+        'b-embed': 'src'
+      }
+    },
+    plugins: [
+      new webpack.ProvidePlugin({
+        '$': 'jquery'
+      })
+    ]
+  },
+  /**
+   * 使用generate命令方式运行打包生成静态
+   */
+  generate: {
+    routes: [
+      '/'
+    ]
   }
 }

@@ -1,12 +1,3 @@
-/*
- * @Description: ESlint + prettierrc 配置文件
- * @Author: MoonCheung
- * @Github: https://github.com/MoonCheung
- * @Date: 2019-09-06 13:01:48
- * @LastEditors: MoonCheung
- * @LastEditTime: 2019-09-06 16:59:28
- */
-
 module.exports = {
   root: true,
   env: {
@@ -51,6 +42,19 @@ module.exports = {
     // nuxt 相关规则
     'nuxt/no-timing-in-fetch-data': 0,
     // eslint 相关规则
-    'on-console': 0
+    'on-console': 0,
+    'spaced-comment': [
+      "warn", "always"
+    ],
+    'globals': {
+      '$': true,
+      '_': true
+    },
+    'no-undef': [1, {
+      "$": true
+    }],
+    "prefer-const": [1, {
+      "destructuring": "all"
+    }]
   }
 }
