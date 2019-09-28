@@ -41,6 +41,7 @@ export default {
    ** Global CSS
    */
   css: [
+    '@fortawesome/fontawesome/styles.css',
     '@/assets/css/tooplate-style.css',
     '@/assets/css/hero-slider.css',
     '@/assets/css/main.css'
@@ -48,7 +49,9 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    '@/plugins/font-awesome',
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -68,7 +71,16 @@ export default {
   ],
   // bootstrapVue 按需引入
   bootstrapVue: {
-    componentPlugins: [],
+    componentPlugins: [
+      'LayoutPlugin',
+      'NavbarPlugin',
+      'CarouselPlugin',
+      'ImagePlugin',
+      'TabsPlugin',
+      'FormInputPlugin',
+      'FormTextareaPlugin',
+      'ButtonPlugin'
+    ],
     directivePlugins: []
   },
   /*

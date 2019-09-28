@@ -46,15 +46,12 @@ module.exports = {
     'spaced-comment': [
       "warn", "always"
     ],
-    'globals': {
-      '$': true,
-      '_': true
-    },
-    'no-undef': [1, {
+    'no-undef': [0, {
       "$": true
     }],
     "prefer-const": [1, {
       "destructuring": "all"
-    }]
+    }],
+    "object-shorthand": [0, "consistent"]
   }
 }
