@@ -42,7 +42,7 @@ export default {
     isActive: false
   }),
   mounted () {
-    /// 监听滚动事件
+    // 监听滚动事件
     window.addEventListener('scroll', this.toFixedHeader, true);
   },
   methods: {

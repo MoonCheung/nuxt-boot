@@ -18,7 +18,7 @@ import {
   FontAwesomeLayersText
 } from '@fortawesome/vue-fontawesome'
 
-config.autoAddCss = false
+// config.autoAddCss = false
 
 library.add(
   faRss,

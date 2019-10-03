@@ -44,7 +44,7 @@ module.exports = {
     // eslint 相关规则
     'on-console': 0,
     'spaced-comment': [
-      "warn", "always"
+      1, "always"
     ],
     'no-undef': [0, {
       "$": true

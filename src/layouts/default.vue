@@ -1,19 +1,19 @@
 <template>
-  <div class="container">
-    <navbar />
-    <nuxt />
-    <footers />
+  <div>
+    <v-navbar />
+    <router-view />
+    <v-footer />
   </div>
 </template>
 
 <script>
-import navbar from '@/components/Navbar';
-import footers from '@/components/Footer';
+import VNavbar from '@/components/Navbar';
+import VFooter from '@/components/Footer';
 
 export default {
   components: {
-    navbar,
-    footers
+    VNavbar,
+    VFooter
   }
 }
 </script>

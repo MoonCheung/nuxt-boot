@@ -8,8 +8,18 @@ export function createRouter() {
     mode: 'history',
     routes: [{
       path: '/',
-      name: 'index',
-      component: () => import('@/pages/index').then(m => m.default || m)
-    }]
+      name: 'home',
+      component: () => import('@/pages/home.vue').then(m => m.default || m)
+    }],
+    scrollBehavior(to, from, savedPosition) {
+      if (savedPosition) {
+        return savedPosition
+      } else {
+        return {
+          x: 0,
+          y: 0
+        }
+      }
+    }
   })
 }

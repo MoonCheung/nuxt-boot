@@ -638,7 +638,7 @@
 
 <script>
 export default {
-  name: "Index",
+  name: "Home",
   data: () => ({
     slide: 0,
   }),

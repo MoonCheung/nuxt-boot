@@ -41,7 +41,7 @@ export default {
    ** Global CSS
    */
   css: [
-    '@fortawesome/fontawesome/styles.css',
+    '@fortawesome/fontawesome-svg-core/styles.css',
     '@/assets/css/tooplate-style.css',
     '@/assets/css/hero-slider.css',
     '@/assets/css/main.css'
