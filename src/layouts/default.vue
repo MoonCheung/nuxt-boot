@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-navbar />
-    <router-view />
+    <nuxt />
     <v-footer />
   </div>
 </template>
@@ -15,5 +15,5 @@ export default {
     VNavbar,
     VFooter
   }
-}
+};
 </script>

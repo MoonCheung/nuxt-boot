@@ -90,5 +90,6 @@ sw.*
 # Vim swap files
 *.swp
 
-# ignore package-lock,json
+# ignore lock file
 package-lock.json
+yarn.lock

@@ -1,4 +1,4 @@
-const webpack = require('webpack')
+const webpack = require('webpack');
 
 export default {
   mode: 'universal',
@@ -8,7 +8,8 @@ export default {
    */
   head: {
     title: process.env.npm_package_name || '',
-    meta: [{
+    meta: [
+      {
         charset: 'utf-8'
       },
       {
@@ -21,15 +22,17 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{
-      rel: 'icon',
-      type: 'image/x-icon',
-      href: '/favicon.ico'
-    }]
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/favicon.ico'
+      }
+    ]
   },
   router: {
     // 在每页渲染前运行 middleware/user-agent.js 中间件的逻辑
-    middleware: ['user-agent', 'visits']
+    // middleware: ['user-agent', 'visits']
   },
   /*
    ** Customize the progress-bar color
@@ -49,16 +52,14 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    '@/plugins/font-awesome',
-  ],
+  plugins: ['@/plugins/font-awesome'],
   /*
    ** Nuxt.js dev-modules
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
-    '@nuxtjs/router',
+    '@nuxtjs/router'
   ],
   /*
    ** Nuxt.js modules
@@ -96,24 +97,30 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {
-      const vueLoader = config.module.rules.find(rule => rule.loader === 'vue-loader')
-      vueLoader.options.transformAssetUrls = {
-        video: ['src', 'poster'],
-        source: 'src',
-        img: 'src',
-        image: 'xlink:href',
-        'b-img': 'src',
-        'b-img-lazy': ['src', 'blank-src'],
-        'b-card': 'img-src',
-        'b-card-img': 'src',
-        'b-card-img-lazy': ['src', 'blank-src'],
-        'b-carousel-slide': 'img-src',
-        'b-embed': 'src'
+      // Extend only webpack config for client-bundle
+      const {
+        isClient,
+        loaders: { vue }
+      } = ctx;
+      if (isClient) {
+        vue.transformAssetUrls = {
+          video: ['src', 'poster'],
+          source: 'src',
+          img: 'src',
+          image: 'xlink:href',
+          'b-img': 'src',
+          'b-img-lazy': ['src', 'blank-src'],
+          'b-card': 'img-src',
+          'b-card-img': 'src',
+          'b-card-img-lazy': ['src', 'blank-src'],
+          'b-carousel-slide': 'img-src',
+          'b-embed': 'src'
+        };
       }
     },
     plugins: [
       new webpack.ProvidePlugin({
-        '$': 'jquery'
+        $: 'jquery'
       })
     ]
   },
@@ -121,8 +128,6 @@ export default {
    * 使用generate命令方式运行打包生成静态
    */
   generate: {
-    routes: [
-      '/'
-    ]
+    routes: ['/']
   }
-}
+};
